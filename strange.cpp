@@ -1,3 +1,22 @@
+// Which one word need to change that fix this code?
+struct Foo {
+  void *foo;
+  struct foo *next;
+};
+
+static Foo foos;
+static std::mutex m;
+
+void consume_list_element(const std::condition_variable &condition) {
+  std::unique_lock<std::mutex> lk(m);
+
+  if (foos.next == nullptr) {
+    condition.wait(lk);
+  }
+
+  // Proceed when condition holds.
+}
+
 // What will print this function?
 int main() {
   const char *str = nullptr;

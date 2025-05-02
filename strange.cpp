@@ -1,3 +1,18 @@
+// This code correct but fails on test, but why?
+constexpr std::uint16_t toUint16(std::uint16_t x) {
+    x *= x;
+    return x;
+}
+
+// 65535 * 65535 mod 1<<16 = 1
+
+static_assert(toUint16(65535) == 1); // won't compile
+
+int main() {
+    std::cout << toUint16(65535);
+}
+// https://godbolt.org/z/jeGYsMG89
+
 // What will print this code? (-std=c++20,  -O3)
 void f(float&& x) { std::cout << "float " << x << "\n";  }
 void f(int&& x) { std::cout << "int " << x << "\n";  }

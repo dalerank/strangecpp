@@ -1,4 +1,17 @@
 // What will print this function?
+struct T {
+    ~T() { printf("Goodbye world"); }
+};
+
+int main() {
+  T *bar = new T;
+  std::shared_ptr<T> p1(bar);
+  std::shared_ptr<T> p2(bar);
+
+  return 0;
+}
+
+// What will print this function?
 int main() {
   const bool x = 1;
   auto str = std::string(x ? "Hello world" : "Goodbye world").c_str();

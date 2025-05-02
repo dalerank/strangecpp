@@ -1,4 +1,17 @@
 // What will print this function?
+int main() {
+  const char *str = nullptr;
+  {
+    const char tmpstr1[] = "Goodbye world";
+    str = tmpstr1;
+  }
+  printf("%s", str ? str : "Hello world"); 
+  return 0;
+}
+// https://godbolt.org/z/Wd4GMx6se
+// https://godbolt.org/z/9ovx8q59j
+
+// What will print this function?
 struct T {
     ~T() { printf("Goodbye world"); }
 };

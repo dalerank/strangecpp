@@ -1,3 +1,27 @@
+// What this function will print?
+#include <iostream>
+
+typedef void (*Function1)();
+
+static Function1 Function2 = nullptr;
+const char *result = "Hello World";
+
+static void FunctionPrint() {
+  result = "Goodbye world";
+}
+
+void NeverCalled() {
+  Function2 = FunctionPrint;  
+}
+
+int main() {
+  Function2();  
+  printf("%s", result);
+
+  return 0;
+}
+// https://godbolt.org/z/GKhq74j31
+
 // bug in ps5 sdk monotonic_buffer_resource
 protected:
 	virtual void *do_allocate(size_t _Bytes, size_t _Bound)

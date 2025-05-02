@@ -1,3 +1,20 @@
+// What will print this code?
+#include <vector>
+#include <numeric>
+#include <iostream>
+
+int average(const std::vector<int>& v) {
+    if (v.empty()) {
+        return 0;
+    }
+    return std::accumulate(v.begin(), v.end(), 0) / v.size();
+}
+
+int main() {
+    std::cout << average({-1,-1,-1});
+}
+// https://godbolt.org/z/jjvdYhaMG
+
 // Will Geralt get coins?
 class Witcher {
   int i;

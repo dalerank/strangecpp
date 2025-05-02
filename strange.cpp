@@ -1,3 +1,28 @@
+// bug in ps5 sdk monotonic_buffer_resource
+protected:
+	virtual void *do_allocate(size_t _Bytes, size_t _Bound)
+	{	// allocate from blocks
+	....
+
+	for (; ; )
+		{	// find aligned space, or add more blocks
+		for (_Mylist::iterator _It = _Free_space.begin();
+			++_It != _Free_space.end(); )  // <<<<<<<<<<<<<<<<<<<< miss buffer for work
+			{
+			uintptr_t _Current_offset_addr = (uintptr_t)(_It->_Ptr + _It->_Offset);
+			char *_Next_aligned_addr =
+				(char *)((_Current_offset_addr + (_Bound - 1)) & ~(_Bound - 1));
+			if (_Next_aligned_addr + _Bytes <= _It->_Ptr + _It->_Bytes)
+				{	// room for aligned storage, return its address
+				_It->_Offset = (_Next_aligned_addr + _Bytes) - _It->_Ptr;
+				return (_Next_aligned_addr);
+				}
+			}
+
+		    ....
+		}
+	}
+
 // Just to wake up, what this function print?
 int main() {
     struct { auto operator,(char $) { (char&)*this = $; return *this; } } $;

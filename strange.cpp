@@ -1,3 +1,12 @@
+// What will this function print?
+// c++23
+int main() {
+  std::vector a{0, 1, 1, 0};
+  std::erase(a, a[0]);
+  println("{}", a);
+}
+// https://godbolt.org/z/zf3G5e9ns
+
 // Which lambda corresponds to which programming language?
 (<0)                              // 1:  H....
 _ < 0                             // 2:  S....

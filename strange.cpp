@@ -1,3 +1,14 @@
+// What will print this function?
+int main() {
+    std::string s;
+    s += 48;    
+    s += 1000;  
+    s += 49.5;
+    printf(s.c_str());
+    return 0;
+}
+// 
+
 // What will print this code?
 #include <cmath>
 #include <iostream>

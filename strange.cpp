@@ -1,3 +1,15 @@
+// what this function will print?
+volatile int drive = 2;
+
+int main()
+{
+    if (drive == 2) // we just want handle this logic on disk c:\
+        printf("Hello world");  
+
+    printf("Goodbye world");
+    return 0;
+}
+
 // What from this code can be compiled?
 void f(void);
 

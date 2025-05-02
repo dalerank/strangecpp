@@ -123,3 +123,43 @@ public:
     return *this;
   }
 };
+
+// What from this will not compile and work on c++?
+int main()
+{
+    // 0
+    enum state {
+        waiting = 'WAIT',
+        running = 'RUN!',
+        stopped = 'STOP',
+    };
+    printf("state = %s\n", &(state{waiting}));
+    
+    // 1
+    char (*ap3)[90][90] = malloc(sizeof *ap3);
+    printf("sizeof(ap3) = %d\n", (int)sizeof *ap3);
+    
+    // 2
+    constexpr int n = 0xff;
+    int (*ap4)<:n:> = malloc(sizeof *ap4);
+    
+    // 3
+    struct bar {
+        unsigned char x : 5;
+        unsigned short  : 0;
+        unsigned char y : 7;
+    };
+    printf("sizeof(bar) = %d\n", (int)sizeof(bar));
+    
+    // 4
+    int nn = 10;
+    while (nn --> 0) {
+        printf("%d\n", nn);
+    }
+    
+    // 5
+    100??(*ap4??) or_eq 7;
+    printf("%d\n", *(*ap4 + 100));
+
+    return 0;
+}

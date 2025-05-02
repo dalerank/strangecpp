@@ -1,3 +1,17 @@
+// What will print this function?
+#include <cstdint>
+#include <cstdio>
+
+template<typename F, typename... Ts>
+void foo(F f, Ts... ts)
+{
+  int _;
+  (_ = ... = (f(ts), 0));
+}
+int main() {
+   foo(printf, "h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d");
+}
+
 // What will print this code?
 #include <vector>
 #include <numeric>

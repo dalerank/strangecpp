@@ -72,3 +72,12 @@ int v;
 #endif // A_HEADER_FILE
 //end a.h
 
+// Here, we didn’t lock anything, even though at first glance it seemed like we did. This code was found in unity engine
+// in certain places when working with resources, which led to strange crashes
+static std::mutex m;
+static int shared_resource = 0;
+ 
+void increment_by_42() {
+  std::unique_lock<std::mutex>(m);
+  shared_resource += 42;
+}

@@ -1,3 +1,21 @@
+// Will Geralt get coins?
+class Witcher {
+  int i;
+
+public:
+  virtual int TakeCoins(int coins) { return i += coins; }
+};
+
+int main() {
+  Witcher *geralt = new Witcher();
+
+  memset(geralt, 0, sizeof(Witcher));
+
+  std::cout << geralt->TakeCoins(100);
+  return 0;
+}
+// Witcher always take coins. 
+
 // Which one word need to change that fix this code?
 struct Foo {
   void *foo;

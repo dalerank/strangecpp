@@ -81,3 +81,21 @@ void increment_by_42() {
   std::unique_lock<std::mutex>(m);
   shared_resource += 42;
 }
+
+// Here’s an example of code that was randomly failing in the release build on different compilers, which was used to calculate 
+// checksums in PathEngine. The solution for the PlayStation contained a specific flag that masked the issue, while it was missing 
+// on the other platforms. The bug was discovered when we tried to build the library using Clang on PC
+
+struct AreaCrc32 {
+  unsigned char buffType = 0;
+  int crc = 0;
+};
+
+AreaCrc32 s1 {};
+AreaCrc32 s2 {};
+
+void similarArea(const AreaCrc32 &s1, const AreaCrc32 &s2) {
+  if (!::memcmp(&s1, &s2, sizeof(AreaCrc32))) {
+    // ...
+  }
+}

@@ -1,0 +1,2 @@
+# strangecpp
+strange cpp things

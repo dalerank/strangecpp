@@ -1,3 +1,14 @@
+// What will return this function?
+int pockets[] = { 0, 1 };
+int index = 0;
+
+int get_money(int index, const int *pockets) {
+  int a = index + pockets[++index];
+  // ...
+
+  return a;
+}
+
 // What will this function print?
 // c++23
 int main() {

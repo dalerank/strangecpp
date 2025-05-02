@@ -56,3 +56,19 @@ int main() {
     int i = add(0, 1);
     std::cout << i;
 }
+
+// This code was dragged into the repository in the Friday evening and seems somebody slipped on review. It took an hours to
+// figure out the strange behavior in real app. The author was sent to make coffee for everyone and was banned from
+// committing on Friday evenings. It sample, but can you catch the error?
+
+// begin a.h
+#ifndef A_HEADER_FILE
+#define A_HEADER_FILE
+  
+namespace {
+int v;
+}
+  
+#endif // A_HEADER_FILE
+//end a.h
+

@@ -1,3 +1,24 @@
+// What from this code can be compiled?
+void f(void);
+
+template<typename T>
+auto ft(T t) { return t(); }
+
+int t() {
+    void (*f1)(void) = f;
+    void (*f2)(void) = *f;
+    void (*f3)(void) = &f;
+    void (*f4)(void) = ******f;
+    void (*f5)(void) = &***********f;
+    void (*f6)(void) = ***&***f;
+    void (*f7)(void) = &**&***&***&f;
+    auto f8 = f();
+    auto f9 = [] { return f(); };
+    [] { return f(); } ();
+    ft(f);
+    return 0;
+}
+
 // Can c++ compile urls?
 int main() {
     http://www.godbolt.org

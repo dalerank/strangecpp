@@ -1,3 +1,11 @@
+// Just to wake up, what this function print?
+int main() {
+    struct { auto operator,(char $) { (char&)*this = $; return *this; } } $;
+    printf("%d", ($, 42, 45, 41, 55));
+    printf("%d", $, 42, 45, 41, 55);
+    return 0;
+}
+
 // what this function will print?
 volatile int drive = 2;
 

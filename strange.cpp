@@ -1,3 +1,23 @@
+// What will this function print?
+#include <cstdio>
+
+void helloworld() {
+    printf("Hello world!");
+}
+
+int main() {
+    while (1) {
+        ;
+    }
+    helloworld();
+    return 0;
+}
+
+void goodbyeworld() {
+    printf("Goodbye world!");
+}
+// https://godbolt.org/z/h7WooW6PE
+
 // What will return this function?
 int pockets[] = { 0, 1 };
 int index = 0;

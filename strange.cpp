@@ -1,4 +1,13 @@
-int baadcommnent() {
+// Can c++ compile urls?
+int main() {
+    http://www.godbolt.org
+    https://www.godbolt.org
+    ftp://123.oldstrage.me/data
+    return (int)"Can I compile urls?";
+}
+
+// baad comment
+int baadcomment() {
     std::string hello_world = "hello world";
     if (hello_world.compare("hello world‮ ⁦// Check this is correct⁩ ⁦"))
     {

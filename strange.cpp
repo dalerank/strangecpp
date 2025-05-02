@@ -186,3 +186,16 @@ int main() {
     sayНello();
     return 0;
 }
+
+// What this function will print?
+int abs_legs(int my_legs) {
+  if (my_legs < 0) {
+    return -my_legs;
+  }
+}
+
+int main() {
+    volatile int legs = 4;
+    printf("%d", abs_legs(legs));
+}
+// https://godbolt.org/z/G6xGn7P6s

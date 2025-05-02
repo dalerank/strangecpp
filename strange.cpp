@@ -1,3 +1,14 @@
+// What will print this code? (-std=c++20,  -O3)
+void f(float&& x) { std::cout << "float " << x << "\n";  }
+void f(int&& x) { std::cout << "int " << x << "\n";  }
+void g(auto&& v) { f(v); } // C++20
+
+int main() { 
+    g(2);
+    g(1.f);
+}
+// https://godbolt.org/z/8WM33KTcs
+
 // What will print this function?
 int main() {
     std::string s;

@@ -1,3 +1,12 @@
+// What will print this function?
+int main() {
+  const bool x = 1;
+  auto str = std::string(x ? "Hello world" : "Goodbye world").c_str();
+  printf("%s", str);
+  return 0;
+}
+// https://godbolt.org/z/arMhTqcdn
+
 // What will this function print?
 #include <cstdio>
 

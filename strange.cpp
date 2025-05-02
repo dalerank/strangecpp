@@ -174,3 +174,15 @@ int  main() {
     A *a = nullptr;
     a->bar();
 }
+
+// What will be the output of the program?
+void sayHello() {
+    std::cout << "Hello, World!\n";
+}
+void sayНello() {
+    std::cout << "Goodbye, World!\n";
+}
+int main() {
+    sayНello();
+    return 0;
+}

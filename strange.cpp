@@ -19,3 +19,40 @@ void	UObject::setDeltaPitch(const UMatrix &gizmo) {
 		rotateAccum.setAnglesXYZ(axis);
         //....
 }
+
+// There can be issues when working with two or more threads accessing either of the variables a/b. 
+// This error was present in the CryTek engine when synchronizing the state of vehicles over the network, which resulted in 
+// jerks and teleports when driving a car in the multiplayer mode of FarCry 1. The more players were on the map, the higher 
+// the probability of teleportation for the last player. With 16 players on the map, the last player would consistently teleport 
+// if they were using a vehicle.
+struct X {
+  int a : 2;
+  int b : 2;
+} x;
+
+Thread 1:
+void foo() { x.a = 1 }
+
+Thread 2:
+void boo() { x.b = 1 }
+
+// Functions can be defined to accept more arguments at the call site than are specified in the declaration. 
+// Such functions are called variadic functions. C++ provides two mechanisms to define a variadic function: a template with a 
+// variable number of parameters and the use of an ellipsis in the C style as the final parameter declaration. A very unpleasant 
+// behavior was encountered in the popular FMOD Engine sound library. I present the code as it appeared in the source files; 
+// it seems the developers wanted to save on templates. 
+int add(int first, int second, ...) {
+  int r = first + second; 
+  va_list va;
+  va_start(va, second);
+  while (int v = va_arg(va, int)) {
+    r += v;
+  }
+  va_end(va);
+  return r;
+}
+
+int main() {
+    int i = add(0, 1);
+    std::cout << i;
+}

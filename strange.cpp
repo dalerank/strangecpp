@@ -1,3 +1,15 @@
+// What will print this function?
+int main() {
+    std::vector<int> v = {1};
+    auto idx = -1;
+    if (idx < v.size()) {
+        std::cout << "Hello World!\n";
+    } else {
+        std::cout << "Goodbye World!\n";
+    }
+}
+// https://onlinegdb.com/HPkS4s3jw
+
 // This code correct but fails on test, but why?
 constexpr std::uint16_t toUint16(std::uint16_t x) {
     x *= x;

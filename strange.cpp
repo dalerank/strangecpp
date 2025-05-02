@@ -163,3 +163,14 @@ int main()
 
     return 0;
 }
+
+// Can this code works?
+struct A {
+    int x = 0;
+    void bar() { std::cout << "bar" << std::endl; }
+};
+
+int  main() {
+    A *a = nullptr;
+    a->bar();
+}

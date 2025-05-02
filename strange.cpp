@@ -1,3 +1,13 @@
+// What will print this code?
+#include <cmath>
+#include <iostream>
+
+int main() {
+    std::cout << abs(3.5) << "\n"; 
+    std::cout << std::abs(3.5);
+}
+// https://godbolt.org/z/5e9r6Ga74
+
 // What will print this function?
 #include <cstdint>
 #include <cstdio>
